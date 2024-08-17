@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 
 # Set new user password
-echo "First, let's set a new password for better security!"
-passwd
+# echo "First, let's set a new password for better security!"
+# passwd
 
 # Enable SSH
-sudo systemctl enable ssh
-sudo systemctl start ssh
+# sudo systemctl enable ssh
+# sudo systemctl start ssh
 
 # Prepare system
 sudo apt-get update -y
@@ -14,17 +14,17 @@ sudo apt-get upgrade -y
 sudo apt-get install git ruby -y
 
 # Clone this repo
-git clone https://github.com/sinedied/pi-midi-host
+git clone https://github.com/colejd/pi-midi-host
 cd pi-midi-host
 
 # Optimize for power efficiency and fast boot
 sudo cp config.txt /boot/
 sudo cp cmdline.txt /boot/
 
-# Make device identifiable more easily on the network
-sudo apt-get install avahi-daemon -y
-sudo sed -i -- 's/raspberrypi/midihub/g' /etc/hostname /etc/hosts
-sudo hostname midihub
+# # Make device identifiable more easily on the network
+# sudo apt-get install avahi-daemon -y
+# sudo sed -i -- 's/raspberrypi/midihub/g' /etc/hostname /etc/hosts
+# sudo hostname midihub
 
 # Install MIDI autoconnect script
 sudo cp connectall.rb /usr/local/bin/
