@@ -84,8 +84,8 @@ EOF
 sed -i.bak '/driftfile/c\driftfile /tmp\/ntp.drift' /etc/ntp.conf
 
 echo "* Setting up tmpfs for lightdm, in case this isn't a headless system."
-ln -fs /tmp/.Xauthority /home/pi/.Xauthority
-ln -fs /tmp/.xsession-errors /home/pi/.xsession-errors
+ln -fs /tmp/.Xauthority /home/colejd/.Xauthority
+ln -fs /tmp/.xsession-errors /home/colejd/.xsession-errors
 
 echo "* Setting fs as ro in fstab (unless something is set ro already)"
 if [ 0 -eq $( grep -c ',ro' /etc/fstab ) ]; then
